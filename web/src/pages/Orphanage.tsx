@@ -1,37 +1,18 @@
 import React from 'react';
 import { FaWhatsapp } from "react-icons/fa";
-import { FiClock, FiInfo, FiArrowLeft } from "react-icons/fi";
+import { FiClock, FiInfo } from "react-icons/fi";
 import { Map, Marker, TileLayer } from "react-leaflet";
-import { useHistory } from 'react-router-dom';
-import L from 'leaflet';
 
-import mapMarkerImg from '../images/map-marker.svg';
+import MapIcon from '../utils/mapIcon';
+import Sidebar from '../components/Sidebar';
 
 import '../styles/pages/orphanage.css';
 
-const happyMapIcon = L.icon({
-    iconUrl: mapMarkerImg,
-
-    iconSize: [58, 68],
-    iconAnchor: [29, 68],
-    popupAnchor: [8, -68],
-})
-
 export default function Orphanage() {
-    const { goBack } = useHistory();
 
     return (
-        <div className="page-orphanage">
-            <aside>
-                <img src={mapMarkerImg} alt="Happy" />
-
-                <footer>
-                  <button type="button" onClick={goBack}>
-                    <FiArrowLeft size={24} color="#FFF" />
-                  </button>
-                </footer>
-
-            </aside>
+        <div id="page-orphanage">
+            <Sidebar/>
 
             <main>
               <div className="orphanage-details">
@@ -41,19 +22,19 @@ export default function Orphanage() {
                   <button className="active" type="button">
                     <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar do meninos"/>
                   </button>
-                  <button className="active" type="button">
+                  <button type="button">
                     <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar do meninos"/>
                   </button>
-                  <button className="active" type="button">
+                  <button type="button">
                     <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar do meninos"/>
                   </button>
-                  <button className="active" type="button">
+                  <button type="button">
                     <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar do meninos"/>
                   </button>
-                  <button className="active" type="button">
+                  <button type="button">
                     <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar do meninos"/>
                   </button>
-                  <button className="active" type="button">
+                  <button type="button">
                     <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar do meninos"/>
                   </button>
                 </div>
@@ -76,7 +57,7 @@ export default function Orphanage() {
                       <TileLayer
                         url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
                       />
-                      <Marker interactive={false} icon={happyMapIcon} position={[-23.6228802,-46.7864727]} />
+                      <Marker interactive={false} icon={MapIcon} position={[-23.6228802,-46.7864727]} />
 
                     </Map>
 
