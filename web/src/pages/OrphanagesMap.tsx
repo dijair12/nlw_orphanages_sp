@@ -20,8 +20,6 @@ interface Orphanages {
 function OrphanagesMap() {
     const [orphanages, setOrphanages] = useState<Orphanages[]>([]);
 
-    console.log(orphanages);
-
     useEffect(() => {
         api.get('orphanages').then(response => {
             setOrphanages(response.data);
